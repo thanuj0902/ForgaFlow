@@ -15,7 +15,7 @@ const app: Express = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['https://forgaflow-ez8k.onrender.com/'],
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000', 'https://forgaflow-ez8k.onrender.com'],
   credentials: true
 }));
 app.use(express.json());
@@ -58,10 +58,9 @@ async function start() {
     await sequelize.sync({ alter: true });
     console.log('Database synced');
     
-    const PORT = process.env.PORT || 3000;
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
-});
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on port ${PORT}`);
+    });
   } catch (error) {
     console.error('Failed to start server:', error);
     process.exit(1);
