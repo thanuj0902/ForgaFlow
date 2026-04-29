@@ -1,0 +1,137 @@
+{
+  "app": {
+    "name": "Task Manager",
+    "description": "A simple task management app",
+    "auth": {
+      "enabled": true,
+      "method": "email_password"
+    }
+  },
+  "ui": [
+    {
+      "id": "task-form",
+      "type": "form",
+      "title": "Create Task",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "Task Title",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "label": "Description",
+          "required": false
+        },
+        {
+          "name": "priority",
+          "type": "select",
+          "label": "Priority",
+          "options": ["low", "medium", "high"]
+        },
+        {
+          "name": "due_date",
+          "type": "date",
+          "label": "Due Date",
+          "required": false
+        }
+      ],
+      "api_binding": "/api/tasks"
+    },
+    {
+      "id": "task-list",
+      "type": "table",
+      "title": "Tasks",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "name": "priority",
+          "type": "text",
+          "label": "Priority"
+        },
+        {
+          "name": "due_date",
+          "type": "date",
+          "label": "Due Date"
+        }
+      ],
+      "api_binding": "/api/tasks"
+    }
+  ],
+  "apis": [
+    {
+      "id": "tasks-list",
+      "path": "/tasks",
+      "method": "GET",
+      "action": "list",
+      "table": "tasks"
+    },
+    {
+      "id": "tasks-create",
+      "path": "/tasks",
+      "method": "POST",
+      "action": "create",
+      "table": "tasks"
+    },
+    {
+      "id": "tasks-read",
+      "path": "/tasks",
+      "method": "GET",
+      "action": "read",
+      "table": "tasks"
+    },
+    {
+      "id": "tasks-update",
+      "path": "/tasks",
+      "method": "PUT",
+      "action": "update",
+      "table": "tasks"
+    },
+    {
+      "id": "tasks-delete",
+      "path": "/tasks",
+      "method": "DELETE",
+      "action": "delete",
+      "table": "tasks"
+    }
+  ],
+  "database": {
+    "tables": [
+      {
+        "name": "tasks",
+        "fields": [
+          {
+            "name": "title",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "priority",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "due_date",
+            "type": "date",
+            "required": false
+          }
+        ]
+      }
+    ]
+  },
+  "locale": {
+    "default": "en",
+    "supported": ["en", "hi", "es"]
+  }
+}
