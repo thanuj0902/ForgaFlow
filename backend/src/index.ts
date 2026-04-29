@@ -12,7 +12,7 @@ import { dynamicRouter } from './routes/dynamic';
 dotenv.config();
 
 const app: Express = express();
-const PORT = process.env.PORT || 8000;
+const PORT = parseInt(process.env.PORT || '8000', 10);
 
 app.use(cors({
   origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000', 'https://forgaflow-ez8k.onrender.com'],

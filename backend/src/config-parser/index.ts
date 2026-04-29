@@ -10,7 +10,7 @@ export function parseConfig(rawConfig: any): ParseResult {
   const warnings: string[] = [];
   const errors: string[] = [];
 
-  const normalised = {
+  const normalised: any = {
     app: {
       name: 'Untitled App',
       description: '',
