@@ -15,7 +15,7 @@ const app: Express = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'],
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['https://forgaflow-ez8k.onrender.com/'],
   credentials: true
 }));
 app.use(express.json());
