@@ -12,6 +12,10 @@ export const sequelize = new Sequelize(DATABASE_URL, {
     timestamps: true,
     underscored: true,
   },
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
 });
-
-export default sequelize;

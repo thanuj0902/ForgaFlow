@@ -93,9 +93,8 @@ docker-compose.yml
 ## Quick Start
 
 ### Prerequisites
-- Node.js 18+
-- PostgreSQL 16
-- Docker (optional)
+- For local development: Node.js 18+, PostgreSQL 16
+- For Docker: Docker & Docker Compose
 
 ### Local Development
 
@@ -136,8 +135,19 @@ npm run dev
 ### Using Docker Compose
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
+
+### Cloud Deployment (e.g., Render)
+
+1. **Database**: Create a PostgreSQL instance on your cloud provider (e.g., Render's managed PostgreSQL).
+2. **Backend**: Deploy as a Docker web service.
+   - Dockerfile: `backend/Dockerfile`
+   - Env vars: `DATABASE_URL`, `JWT_SECRET`, `ALLOWED_ORIGINS`
+3. **Frontend**: Deploy as a Docker web service.
+   - Dockerfile: `frontend/Dockerfile`
+   - Env vars: `NEXT_PUBLIC_API_URL` (pointing to backend)
+4. Update `ALLOWED_ORIGINS` in backend to include frontend URL.
 
 ## Sample Config
 
