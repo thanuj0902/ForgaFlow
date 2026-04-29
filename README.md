@@ -4,7 +4,8 @@ A config-driven app generator that reads a JSON config and dynamically generates
 
 ## Stack
 
-- **Backend**: Node.js, Express, TypeScript, Sequelize ORM, PostgreSQL
+- **Backend**: Node.js, Express, TypeScript, Sequelize ORM
+- **Database**:PostgreSQL
 - **Frontend**: Next.js 14 (App Router), React, Tailwind CSS
 - **Auth**: JWT + bcrypt
 - **Deployment**: Docker Compose
